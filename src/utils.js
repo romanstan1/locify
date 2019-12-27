@@ -1,7 +1,6 @@
 import React from "react"
 import {useStateContext} from "./store"
 
-
 export const connect = (props, actions) => (Component) => (rest) => {
   const {state, dispatch} = useStateContext()
 

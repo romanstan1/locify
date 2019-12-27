@@ -19,9 +19,13 @@ const counterReducer = (counter, action) => {
   }
 }
 
+const LOGGER = true
+
 export const combinedReducer = (state, action) => {
-  // console.log("previous state:", state)
-  // console.log("action:", action)
+  if (LOGGER) {
+    console.log(`%c ${action.type} `, "background: #222; color: #bada55")
+    console.log("%c PREVIOUS STATE ", "background: #A90B0B; color: #fff", state)
+  }
 
   const newState = {
     ...state,
@@ -29,7 +33,10 @@ export const combinedReducer = (state, action) => {
     counter: counterReducer(state.counter, action)
   }
 
-  // console.log("newState:", newState)
-  // console.log(" ")
+  if (LOGGER) {
+    console.log("%c NEW STATE ", "background: #006CA2; color: #fff", newState)
+    console.log(" ")
+    console.log(" ")
+  }
   return newState
 }
